@@ -8,6 +8,8 @@ load_dotenv()
 
 
 class Command(BaseCommand):
+    """Создание суперпользователя"""
+
     def handle(self, *args, **options):
         User = get_user_model()
         user = User.objects.create(email=os.getenv("EMAIL_SUPERUSER"))
