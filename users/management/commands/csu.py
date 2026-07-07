@@ -4,8 +4,8 @@ from django.contrib.auth import get_user_model
 from django.core.management import BaseCommand
 from dotenv import load_dotenv
 
-
 load_dotenv()
+
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
@@ -17,4 +17,4 @@ class Command(BaseCommand):
         user.is_staff = True
         user.is_superuser = True
         user.save()
-        self.stdout.write(self.style.SUCCESS(f'Суперпользователь успешно создан'))
+        self.stdout.write(self.style.SUCCESS(f"Суперпользователь успешно создан"))

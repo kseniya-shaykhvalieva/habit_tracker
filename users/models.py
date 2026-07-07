@@ -1,6 +1,6 @@
 from django.contrib.auth.base_user import BaseUserManager
-from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
+from django.db import models
 
 
 class CustomUserManager(BaseUserManager):
@@ -12,9 +12,15 @@ class User(AbstractBaseUser, PermissionsMixin):
     """Пользователь"""
 
     email = models.EmailField(unique=True, verbose_name="Адрес электронной почты")
-    phone = models.CharField(max_length=16, verbose_name="Номер телефона", blank=True, null=True)
-    tg_username = models.CharField(max_length=40, verbose_name="Ник в Телеграм", blank=True, null=True)
-    avatar = models.ImageField(upload_to="avatars/", verbose_name="Аватар", blank=True, null=True)
+    phone = models.CharField(
+        max_length=16, verbose_name="Номер телефона", blank=True, null=True
+    )
+    tg_username = models.CharField(
+        max_length=40, verbose_name="Ник в Телеграм", blank=True, null=True
+    )
+    avatar = models.ImageField(
+        upload_to="avatars/", verbose_name="Аватар", blank=True, null=True
+    )
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
