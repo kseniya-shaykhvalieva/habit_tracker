@@ -9,7 +9,7 @@ class UsersAdmin(admin.ModelAdmin):
         "id",
         "email",
         "phone",
-        "tg_username",
+        "tg_chat_id",
     )
     list_filter = ("id",)
     search_fields = ("email",)

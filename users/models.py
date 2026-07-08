@@ -15,8 +15,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     phone = models.CharField(
         max_length=16, verbose_name="Номер телефона", blank=True, null=True
     )
-    tg_username = models.CharField(
-        max_length=40, verbose_name="Ник в Телеграм", blank=True, null=True
+    tg_chat_id = models.CharField(
+        max_length=40, verbose_name="Chat_ID в Телеграм", blank=True, null=True
     )
     avatar = models.ImageField(
         upload_to="avatars/", verbose_name="Аватар", blank=True, null=True

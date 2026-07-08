@@ -1,6 +1,7 @@
-from rest_framework.test import APITestCase
-from rest_framework import status
 from django.urls import reverse
+from rest_framework import status
+from rest_framework.test import APITestCase
+
 from habits.models import Habit
 from users.models import User
 
@@ -17,7 +18,7 @@ class HabitCase(APITestCase):
             action="Сделать разминку",
             execution_time=60,
             periodicity=1,
-            is_public=False
+            is_public=False,
         )
         self.client.force_authenticate(user=self.user)
 
@@ -40,7 +41,7 @@ class HabitCase(APITestCase):
             "action": "Выпить стакан воды",
             "execution_time": 30,
             "periodicity": 1,
-            "is_public": False
+            "is_public": False,
         }
         response = self.client.post(url, data)
 
@@ -86,9 +87,9 @@ class HabitCase(APITestCase):
                     "reward": self.habit.reward,
                     "execution_time": self.habit.execution_time,
                     "is_public": self.habit.is_public,
-                    "user": self.habit.user.pk
+                    "user": self.habit.user.pk,
                 }
-            ]
+            ],
         }
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -123,7 +124,7 @@ class HabitCase(APITestCase):
             "action": "Чтение",
             "execution_time": 150,
             "periodicity": 1,
-            "is_public": False
+            "is_public": False,
         }
         response = self.client.post(url, data)
 
